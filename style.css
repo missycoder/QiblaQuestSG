@@ -10,7 +10,7 @@ body {
 
 /* Set a higher z-index for the Leaflet search control container */
 .leaflet-control-search {
-  z-index: 1001;
+  z-index: 1001 !important;
 }
 
 
