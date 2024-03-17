@@ -1,5 +1,8 @@
+/* Leaflet map styling */
 #singaporeMap {
   height: 800px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* Adjust z-index for Leaflet search control */
@@ -15,7 +18,6 @@ header {
   color: white;
   padding: 10px 20px;
   text-align: center;
-  justify-content:first baseline;
 }
 
 header img {

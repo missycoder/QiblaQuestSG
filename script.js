@@ -95,6 +95,15 @@ document.addEventListener("DOMContentLoaded", async function () {
                 `;
                 const marker = createMarker(carpark.location.latitude, carpark.location.longitude, popupContent, 'images/carparkicon.png');
                 clusterGroup.addLayer(marker);
+
+                // Add `mouseover` and `mouseout` events only to carparks markers
+                marker.on('mouseover', function () {
+                    this.openPopup();
+                });
+
+                marker.on('mouseout', function () {
+                    this.closePopup();
+                });
             }
             // Add the cluster group to the map
             map.addLayer(clusterGroup);
@@ -172,21 +181,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Bind Popup to popupContent to marker
         marker.bindPopup(popupContent);
 
-        // Event Handler - Arrow Function
-        marker.on('mouseover', function () {
-            this.openPopup();
-        });
-
-        // Event Handler
-        marker.on('mouseout', function () {
-            this.closePopup();
-        });
-
         // Return the marker
         return marker;
     }
 
-    // Function to add geocoding control to the map
+    // Function to add geocoding control to the map [API]
     function addGeocodingControl(map) {
         // Add geocoding control using MapTiler
         L.Control.geocoder({
@@ -284,4 +283,3 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 });
-
