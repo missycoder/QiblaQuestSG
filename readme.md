@@ -61,10 +61,8 @@ The layout is designed to be intuitive and user-friendly, with essential feature
 
 ![QiblaQuestSG](https://github.com/missycoder/QiblaQuestSG/assets/156276105/503fb4fe-922a-4c65-ad33-bc3badaa5fb4)
 
-
-
-### Wireframes and Site Diagrams 
-- [Site Diagram](site_diagram.pdf) (*coming soon*)
+### Wireframes
+![Wireframe_QiblaQuest](https://github.com/missycoder/QiblaQuestSG/assets/156276105/ffeb1fe7-e39f-4559-9562-0dd071546822)
 
 ## Testing
 
