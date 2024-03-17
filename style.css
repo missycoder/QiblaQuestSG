@@ -1,4 +1,7 @@
-/* Leaflet map styling */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
 #singaporeMap {
   height: 650px;
   width: 100%;
@@ -72,6 +75,8 @@ nav ul li a img {
 /* Styling for map container */
 #map-container {
   margin: 20px 0;
+  border-radius: 15px; /* rounded map */
+  overflow: hidden; 
 }
 
 /* Styling for search container */
@@ -101,7 +106,7 @@ nav ul li a img {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: #ad9551;
+  background-color: #2a5f2b;
   color: white;
   cursor: pointer;
 }
@@ -124,7 +129,7 @@ nav ul li a img {
 
 /* Footer styling */
 footer {
-  background-color: #333;
+  background-color: #2a5f2b;
   color: white;
   padding: 10px 20px;
   text-align: center;
