@@ -41,15 +41,14 @@ Clear and readable fonts are selected to ensure accessibility for all users. San
 ### Layout
 The layout is designed to be intuitive and user-friendly, with essential features easily accessible. The map takes center stage, providing the main interface for users to interact with.
 
-### Wireframes and Site Diagrams *coming soon*
-- [Wireframes](wireframes.pdf)
-- [Site Diagram](site_diagram.pdf)
+### Wireframes and Site Diagrams 
+- [Site Diagram](site_diagram.pdf) (*coming soon*)
 
-### Screenshots (*coming soon*)
+### Screenshots 
 
-![Desktop View](screenshots/desktop.png)
+![Desktop View](screenshots/desktop.png) (*coming soon*)
 
-![Mobile View](screenshots/mobile.png)
+![Mobile View](screenshots/mobile.png) (*coming soon*)
 
 ## Testing
 
