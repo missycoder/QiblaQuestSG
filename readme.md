@@ -51,6 +51,12 @@ Clear and readable fonts are selected to ensure accessibility for all users. Geo
 ### Layout
 The layout is designed to be intuitive and user-friendly, with essential features easily accessible. The map takes center stage, providing the main interface for users to interact with.
 
+## Laptop View
+
+![QiblaQuestSG](https://github.com/missycoder/QiblaQuestSG/assets/156276105/503fb4fe-922a-4c65-ad33-bc3badaa5fb4)
+
+
+
 ### Wireframes and Site Diagrams 
 - [Site Diagram](site_diagram.pdf) (*coming soon*)
 
