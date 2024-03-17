@@ -2,6 +2,8 @@
 
 QiblaQuest SG is a web application designed to assist Muslim users in Singapore to find mosques, musollas (prayer rooms), and carparks conveniently. The application aims to address the challenges Muslim users face when searching for prayer facilities and parking spaces, especially in unfamiliar areas or during busy times.
 
+![Desktop View](https://github.com/missycoder/QiblaQuestSG/assets/156276105/627adde3-4579-43cc-86f7-649317a2bddc)
+
 ## User Stories
 
 - **As a Muslim resident or visitor in Singapore**, I want to easily find nearby mosques and musollas for prayers, especially when I'm in a new area or traveling.
@@ -47,12 +49,6 @@ The layout is designed to be intuitive and user-friendly, with essential feature
 
 ### Wireframes and Site Diagrams 
 - [Site Diagram](site_diagram.pdf) (*coming soon*)
-
-### Screenshots 
-
-![Desktop View](screenshots/desktop.png) (*coming soon*)
-
-![Mobile View](screenshots/mobile.png) (*coming soon*)
 
 ## Testing
 
