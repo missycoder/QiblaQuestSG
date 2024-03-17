@@ -21,6 +21,10 @@ QiblaQuest SG is a web application designed to assist Muslim users in Singapore 
 
 ## Technologies Used
 
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **BootStrap5**
 - **Leaflet**: Open-source JavaScript library for interactive maps.
 - **Axios**: Promise-based HTTP client for making requests to fetch data.
 - **Leaflet MarkerCluster**: Provides clustering functionality for better visualization of markers.
