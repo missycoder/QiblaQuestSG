@@ -1,0 +1,141 @@
+#singaporeMap {
+  height: 800px;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a higher z-index for the Leaflet search control container */
+.leaflet-control-search {
+  z-index: 1001;
+}
+
+
+header {
+  display:flex;
+  align-items: center;
+  background-color: #ad9551;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header img {
+  max-width: 150px;
+  height:auto;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Header links */
+nav ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Adjust width of home and contactus icons */
+nav ul li a img {
+  width: 40px; 
+  height: auto; 
+}
+
+
+#liveDates {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+#liveDate,
+#islamicDate,
+#prayerTiming {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#prayerTiming span {
+  background-color: #ad9551;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+#map-container {
+  margin: 20px 0;
+}
+
+
+#search-container {
+  position: absolute;
+  top: 20px; /* Adjust this value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1000; /* Ensure it's above the map */
+}
+
+#searchTerms {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 80%;
+  max-width: 300px;
+}
+
+#searchBtn {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ad9551;
+  color: white;
+  cursor: pointer;
+}
+
+
+#toggleSearchBtn {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ad9551;
+  color: white;
+  cursor: pointer;
+}
+
+
+#search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#search-results li {
+  cursor: pointer;
+  padding: 5px;
+}
+
+#search-results li:hover {
+  background-color: #f2f2f2;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

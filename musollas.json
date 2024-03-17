@@ -1,0 +1,250 @@
+{
+    "musollas" : [
+
+        {
+            "Location": "Bedok Mall",
+            "Address": "New Upper Changi Road",
+            "Postal Code": "Singapore 467360",
+            "Latitude": 1.3244,
+            "Longitude": 103.929
+        },
+        {
+            "Location": "Century Square",
+            "Address": "2 Tampines Central 5",
+            "Postal Code": "Singapore 529509",
+            "Latitude": 1.3523,
+            "Longitude": 103.9439
+        },
+        {
+            "Location": "Changi Airport Terminal 1 (Transit Area)",
+            "Address": "Airport Boulevard",
+            "Postal Code": "Singapore 819642",
+            "Latitude": 1.3601,
+            "Longitude": 103.9899
+        },
+        {
+            "Location": "Changi Airport Terminal 2 (Transit Area)",
+            "Address": "Airport Boulevard",
+            "Postal Code": "Singapore 819643",
+            "Latitude": 1.3575,
+            "Longitude": 103.9879
+        },
+        {
+            "Location": "Changi Airport Terminal 3 (Transit Area)",
+            "Address": "Airport Boulevard",
+            "Postal Code": "Singapore 819663",
+            "Latitude": 1.355,
+            "Longitude": 103.987
+        },
+        {
+            "Location": "Changi Airport Terminal 4 (Transit Area)",
+            "Address": "10 Airport Boulevard",
+            "Postal Code": "Singapore 819665",
+            "Latitude": 1.3477,
+            "Longitude": 103.9822
+        },
+        {
+            "Location": "Changi Airport Jewel",
+            "Address": "Airport Boulevard",
+            "Postal Code": "Singapore 819663",
+            "Latitude": 1.3600,
+            "Longitude": 103.9894
+        },
+        {
+            "Location": "City Plaza",
+            "Address": "Geylang Road",
+            "Postal Code": "Singapore 409286",
+            "Latitude": 1.3156,
+            "Longitude": 103.8877
+        },
+        {
+            "Location": "Downtown East",
+            "Address": "Pasir Ris Close",
+            "Postal Code": "Singapore 519599",
+            "Latitude": 1.3776,
+            "Longitude": 103.9463
+        },
+        {
+            "Location": "EastPoint Mall",
+            "Address": "Simei Street 6",
+            "Postal Code": "Singapore 528833",
+            "Latitude": 1.3431,
+            "Longitude": 103.9536
+        },
+        {
+            "Location": "Elias Mall",
+            "Address": "Elias Road",
+            "Postal Code": "Singapore 510685",
+            "Latitude": 1.3773,
+            "Longitude": 103.9427
+        },
+        {
+            "Location": "Ikea Tampines",
+            "Address": "Tampines North Drive 2",
+            "Postal Code": "Singapore 528764",
+            "Latitude": 1.3496,
+            "Longitude": 103.9612
+        },
+        {
+            "Location": "Rasa Istimewa @ Pasir Ris",
+            "Address": "Pasir Ris Road",
+            "Postal Code": "Singapore 519147",
+            "Latitude": 1.3699,
+            "Longitude": 103.9606
+        },
+        {
+            "Location": "Singapore Expo",
+            "Address": "Expo Drive",
+            "Postal Code": "Singapore 486150",
+            "Latitude": 1.3334,
+            "Longitude": 103.9667
+        },
+        {
+            "Location": "Singpost Centre",
+            "Address": "Eunos Road 8",
+            "Postal Code": "Singapore 408600",
+            "Latitude": 1.3182,
+            "Longitude": 103.8947
+        },
+        {
+            "Location": "Tampines Mall",
+            "Address": "Tampines Central 5",
+            "Postal Code": "Singapore 529510",
+            "Latitude": 1.353,
+            "Longitude": 103.9444
+        },
+        {
+            "Location": "Waterway Point",
+            "Address": "83 Punggol Central",
+            "Postal Code": "Singapore 828761",
+            "Latitude": 1.4069,
+            "Longitude": 103.9024
+        },
+        {
+            "Location": "Wisma Geylang Serai",
+            "Address": "Engku Aman Road, Turn",
+            "Postal Code": "Singapore 408528",
+            "Latitude": 1.3161,
+            "Longitude": 103.8926
+        },
+        {
+            "Location": "Asia Square Tower 1",
+            "Address": "Marina View",
+            "Postal Code": "Singapore 018960",
+            "Latitude": 1.2784,
+            "Longitude": 103.8518
+        },
+        {
+            "Location": "Bulkhaul House",
+            "Address": "Beach Road",
+            "Postal Code": "Singapore 169688",
+            "Latitude": 1.3012,
+            "Longitude": 103.8659
+        },
+        {
+            "Location": "City Square Mall",
+            "Address": "Kitchener Road",
+            "Postal Code": "Singapore 208539",
+            "Latitude": 1.3113,
+            "Longitude": 103.8565
+        },
+        {
+            "Location": "Dhia.SG",
+            "Address": "29 Sultan Gate",
+            "Postal Code": "Singapore 198477",
+            "Latitude": 1.3038,
+            "Longitude": 103.8605
+        },
+        {
+            "Location": "Environment Building",
+            "Address": "Scotts Road",
+            "Postal Code": "Singapore 228231",
+            "Latitude": 1.3075,
+            "Longitude": 103.8318
+        },
+        {
+            "Location": "Fairmont Hotel Singapore",
+            "Address": "Brash Basah Road",
+            "Postal Code": "Singapore 189560",
+            "Latitude": 1.2911,
+            "Longitude": 103.8536
+        },
+        {
+            "Location": "Gardens By The Bay",
+            "Address": "Marina Gardens Dr",
+            "Postal Code": "Singapore 018953",
+            "Latitude": 1.2815,
+            "Longitude": 103.8636
+        },
+        {
+            "Location": "HDB Hub",
+            "Address": "Lorong 6 Toa Payoh",
+            "Postal Code": "Singapore 310470",
+            "Latitude": 1.3326,
+            "Longitude": 103.8475
+        },
+        {
+            "Location": "International Plaza",
+            "Address": "Anson Road",
+            "Postal Code": "Singapore 079903",
+            "Latitude": 1.2755,
+            "Longitude": 103.8469
+        },
+        {
+            "Location": "Kallang Wave Mall",
+            "Address": "Stadium Place",
+            "Postal Code": "Singapore 397628",
+            "Latitude": 1.3027,
+            "Longitude": 103.8755
+        },
+        {
+            "Location": "Lucky Plaza",
+            "Address": "Orchard Road",
+            "Postal Code": "Singapore 238863",
+            "Latitude": 1.3046,
+            "Longitude": 103.8329
+        },
+        {
+            "Location": "Marina Square",
+            "Address": "Raffles Boulevard",
+            "Postal Code": "Singapore 039594",
+            "Latitude": 1.2912,
+            "Longitude": 103.8574
+        },
+        {
+            "Location": "National Stadium",
+            "Address": "Stadium Drive",
+            "Postal Code": "Singapore 397629",
+            "Latitude": 1.3027,
+            "Longitude": 103.8755
+        },
+        {
+            "Location": "Orchard Hotel",
+            "Address": "Orchard Road",
+            "Postal Code": "Singapore 238879",
+            "Latitude": 1.3035,
+            "Longitude": 103.8318
+        },
+        {
+            "Location": "Plaza Singapura",
+            "Address": "Orchard Road",
+            "Postal Code": "Singapore 238839",
+            "Latitude": 1.3007,
+            "Longitude": 103.8455
+        },
+        {
+            "Location": "Raffles City Shopping Centre",
+            "Address": "North Bridge Road",
+            "Postal Code": "Singapore 179103",
+            "Latitude": 1.2932,
+            "Longitude": 103.8523
+        },
+        {
+            "Location": "Singapore Flyer",
+            "Address": "Raffles Avenue",
+            "Postal Code": "Singapore 039803",
+            "Latitude": 1.2893,
+            "Longitude": 103.863
+        }
+    ]
+}
