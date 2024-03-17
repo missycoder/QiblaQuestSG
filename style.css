@@ -1,8 +1,7 @@
 /* Leaflet map styling */
 #singaporeMap {
-  height: 800px;
+  height: 650px;
   width: 100%;
-  margin: 0 auto;
 }
 
 /* Adjust z-index for Leaflet search control */
@@ -82,7 +81,7 @@ nav ul li a img {
   padding: 0.5%;
   border-radius: 15px;
   top: 20px;
-  left: 73%;
+  left: 78%;
   transform: translateX(-50%);
   text-align: center;
   color: bisque;
@@ -132,4 +131,17 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  #search-container {
+    left: 50%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #search-container {
+    padding: 0.25%;
+  }
 }
