@@ -282,4 +282,37 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.log("Layer not found on the map.");
         }
     }
+
+    // Hadith quotes array
+    const hadithQuotes = [
+        "The best of you are those who are best to their families. - Sahih Bukhari",
+        "Speak good or remain silent. - Sunan al-Tirmidhi",
+        "None of you truly believes until he loves for his brother what he loves for himself. - Sahih Bukhari",
+        "The strong person is not the one who can wrestle someone else down. The strong person is the one who can control himself when he is angry. - Sahih al-Bukhari",
+        "The most beloved of deeds to Allah are those that are most consistent, even if they are small. - Sahih Bukhari",
+        "Do not be people without minds of your own, saying that if others treat you well you will treat them well and that if they do wrong you will do wrong. But (instead) accustom yourselves to do good if people do good and not to do wrong if they do evil. - Sunan al-Tirmidhi",
+        "Kindness is a mark of faith, and whoever has no kindness has no faith. - Sahih Muslim",
+        "Whoever does not show mercy to our young ones and respect to our elders is not one of us. - Sunan al-Tirmidhi",
+        "The best of people are those who are most beneficial to people. - Sunan al-Tirmidhi",
+        "Do not belittle any good deed, even meeting your brother with a cheerful face. - Sahih Muslim"
+    ];
+
+    // Function to get a random Hadith quote
+    function getRandomHadithQuote() {
+        const randomIndex = Math.floor(Math.random() * hadithQuotes.length);
+        return hadithQuotes[randomIndex];
+    }
+
+    // Function to render Hadith quotes
+    function renderHadithQuote() {
+        const hadithQuotesElement = document.getElementById('hadithQuotes');
+        hadithQuotesElement.textContent = getRandomHadithQuote();
+    }
+
+    // Initial rendering of Hadith quote
+    renderHadithQuote();
+
+    // Set interval to rotate quotes every 10 seconds (10000 milliseconds)
+    setInterval(renderHadithQuote, 10000);
+
 });
