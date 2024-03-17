@@ -39,10 +39,14 @@ QiblaQuest SG is a web application designed to assist Muslim users in Singapore 
 ## Design and User Experience
 
 ### Visual Theme
-The design aims for simplicity and accessibility. The color scheme is chosen to be visually appealing yet easy on the eyes. Gold, white, black, and green tones are used to symbolize growth, harmony, and peace, aligning with the theme of spirituality and nature.
+The design aims for simplicity and accessibility. The color scheme is chosen to be visually appealing yet easy on the eyes. These tones are used to symbolize growth, harmony, and peace, aligning with the theme of spirituality and nature.
+- **Gold**: #ad9551
+- **White**: rgb(255,255,255)
+- **Black**: rgb(0,0,0)
+- **Green**: #2a5f2b
 
 ### Fonts
-Clear and readable fonts are selected to ensure accessibility for all users. Sans-serif fonts are preferred for better legibility, especially on digital screens.
+Clear and readable fonts are selected to ensure accessibility for all users. Georgia, 'Times New Roman', Times, serif fonts are preferred for better legibility, especially on digital screens.
 
 ### Layout
 The layout is designed to be intuitive and user-friendly, with essential features easily accessible. The map takes center stage, providing the main interface for users to interact with.
