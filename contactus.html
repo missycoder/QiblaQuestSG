@@ -11,28 +11,29 @@
     <!-- Custom CSS -->
     <style>
         body {
-            background-color: #000000; /* Dark background */
-            color: #ffffff; /* White text color */
+            background-color: #000000;
+            color: #ffffff; 
         }
         .form-control {
-            background-color: #000000; /* Dark input background */
-            color: #ffffff; /* White input text color */
+            background-color: #000000;
+            color: #ffffff;
         }
         .btn-success {
-            background-color: #ad9551; /* Gold submit button color */
-            border-color: #ad9551; /* Gold submit button border color */
+            background-color: #ad9551; 
+            border-color: #ad9551; 
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
         <div style="background-color: #ffffff; padding: 10px 20px;">
             <a href="index.html"><img src="/images/qiblaquestlogo0.png" alt="QiblaQuest SG Logo"></a>
         </div>
     </header>
         
-
+    <!-- Main Content Section -->
     <div class="container">
         <h1 class="mt-5">Contact Us</h1>
         <p> Feel free to reach out to us for any inquiries, feedback, or support.
@@ -59,6 +60,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
     <!-- Custom JS -->
     <script>
+        // DOMContentLoaded event handler
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
+        });
+
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -68,7 +74,7 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            // Example of using SweetAlert2 for form submission
+            // SweetAlert2 for form submission
             Swal.fire({
                 title: 'Success!',
                 text: 'Your message has been submitted.',
@@ -80,6 +86,22 @@
                 document.getElementById('email').value = '';
                 document.getElementById('message').value = '';
             });
+        });
+
+        // `CHANGE` event handler for form fields
+        // `event listener` listens for the "change" event when the value of the input field changes 
+        // i.e. when user types something new / deletes existing text
+        document.getElementById('name').addEventListener('change', function(event) {
+            console.log('Name field changed:', event.target.value);
+        });
+
+        document.getElementById('email').addEventListener('change', function(event) {
+            console.log('Email field changed:', event.target.value);
+        });
+
+        document.getElementById('message').addEventListener('change', function(event) {
+            // `event.target.value` retrieves the new value of the email input field when it changes
+            console.log('Message field changed:', event.target.value);
         });
     </script>
 </body>

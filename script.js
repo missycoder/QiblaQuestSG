@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // `function` creates a closure around the `addLayerControls` function, 
     // allowing it to access the map variable and its parameters(mosqueCluster, carparkCluster, musollaCluster), 
     // while ensuring that these variables are not accessible from the global scope.
-    (function() {
+    (function () {
         // Add layer control for mosques, carparks, and musollas
         const layerControl = L.control.layers(null, {
             'Mosques': mosqueCluster,
@@ -25,12 +25,17 @@ document.addEventListener("DOMContentLoaded", async function () {
             'Musollas': musollaCluster
         }).addTo(map);
 
-        // Check if the mosque cluster is already added to the map
-        map.hasLayer(mosqueCluster) ? layerControl.addOverlay(mosqueCluster, 'Mosques') : null;
-        // Check if the carpark cluster is already added to the map
-        map.hasLayer(carparkCluster) ? layerControl.addOverlay(carparkCluster, 'Carparks') : null;
-        // Check if the musolla cluster is already added to the map
-        map.hasLayer(musollaCluster) ? layerControl.addOverlay(musollaCluster, 'Musollas') : null;
+        // Select all elements representing layer controls and add them to the map
+        const layerControls = document.querySelectorAll('.layer-control');
+        // // Iterate over each layer control element
+        layerControls.forEach(control => {
+            // Get the layer name from the 'data-layer-name' attribute of the control element
+            const layerName = control.getAttribute('data-layer-name');
+            // Access the layer group by its variable name
+            const layerGroup = window[layerName];
+            // Add the layer to the layer control panel
+            layerControl.addOverlay(layerGroup, layerName);
+        });
     })();
 
     // Add geocoding control for searching locations
@@ -77,49 +82,74 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Function to add markers for carparks to the map
+    // Data Validation - `try-catch` error during the fetching and adding of data for carparks 
     async function addCarparksToMap(map, clusterGroup) {
-        // Fetch carpark data from carparks.json
-        const carparksResponse = await axios.get('carparks.json');
-        // Add markers for each carpark to the cluster group
-        for (let carpark of carparksResponse.data.carparks) {
-            const popupContent = `
-                <h1>${carpark.carpark_no}</h1>
-                <p>${carpark.address}</p>
-            `;
-            const marker = createMarker(carpark.location.latitude, carpark.location.longitude, popupContent, 'images/carparkicon.png');
-            clusterGroup.addLayer(marker);
+        try {
+            // Fetch carpark data from carparks.json
+            const carparksResponse = await axios.get('carparks.json');
+            // Add markers for each carpark to the cluster group
+            for (let carpark of carparksResponse.data.carparks) {
+                const popupContent = `
+                    <h1>${carpark.carpark_no}</h1>
+                    <p>${carpark.address}</p>
+                `;
+                const marker = createMarker(carpark.location.latitude, carpark.location.longitude, popupContent, 'images/carparkicon.png');
+                clusterGroup.addLayer(marker);
+            }
+            // Add the cluster group to the map
+            map.addLayer(clusterGroup);
+        } catch (error) {
+            console.error('Error adding carparks to map:', error);
+            // Display an error message to the user
+            Swal.fire({
+                title: 'Error',
+                text: 'Failed to load carpark data.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
-        // Add the cluster group to the map
-        map.addLayer(clusterGroup);
     }
 
     // Function to add markers for musollas to the map
+    // Data Validation - `try-catch` error during the fetching and adding of data for musollas
     async function addMusollasToMap(map, clusterGroup) {
-        // Fetch musolla data from musollas.json
-        const musollasResponse = await axios.get('musollas.json');
+        try {
+            // Fetch musolla data from musollas.json
+            const musollasResponse = await axios.get('musollas.json');
 
-        // Arrow Function - sort musollas by name alphabetically before adding them to the map
-        // sorts the array of musollas based on their Location property alphabetically
-        musollasResponse.data.musollas.sort((a, b) => a.Location.localeCompare(b.Location));
+            // Arrow Function - sort musollas by name alphabetically before adding them to the map
+            // sorts the array of musollas based on their Location property alphabetically
+            musollasResponse.data.musollas.sort((a, b) => a.Location.localeCompare(b.Location));
 
-        // Add markers for each musolla to the cluster group
-        for (let musolla of musollasResponse.data.musollas) {
-            // Parse latitude and longitude
-            const latitude = parseFloat(musolla.Latitude);
-            const longitude = parseFloat(musolla.Longitude);
+            // Add markers for each musolla to the cluster group
+            for (let musolla of musollasResponse.data.musollas) {
+                // Parse latitude and longitude
+                const latitude = parseFloat(musolla.Latitude);
+                const longitude = parseFloat(musolla.Longitude);
 
-            // Check if latitude and longitude are valid numbers
-            if (!isNaN(latitude) && !isNaN(longitude)) {
-                const popupContent = `
-                <h1>${musolla.Location}</h1>
-                <p><strong>Address:</strong> ${musolla.Address}, ${musolla['Postal Code']}</p>
-            `;
-                const marker = createMarker(latitude, longitude, popupContent, 'images/musollasicon.png');
-                clusterGroup.addLayer(marker);
+                // Data Validation - Check if latitude and longitude are valid numbers
+                // before adding markers for `musollas` to the cluster group.
+                if (!isNaN(latitude) && !isNaN(longitude)) {
+                    const popupContent = `
+                    <h1>${musolla.Location}</h1>
+                    <p><strong>Address:</strong> ${musolla.Address}, ${musolla['Postal Code']}</p>
+                `;
+                    const marker = createMarker(latitude, longitude, popupContent, 'images/musollasicon.png');
+                    clusterGroup.addLayer(marker);
+                }
             }
+            // Add the cluster group to the map
+            map.addLayer(clusterGroup);
+        } catch (error) {
+            console.error('Error adding musollas to map:', error);
+            // Display an error message to the user
+            Swal.fire({
+                title: 'Error',
+                text: 'Failed to load musolla data.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
-        // Add the cluster group to the map
-        map.addLayer(clusterGroup);
     }
 
     // Function to create popup content for mosque markers
@@ -254,3 +284,4 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 });
+
