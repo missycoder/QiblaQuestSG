@@ -21,6 +21,9 @@ QiblaQuest SG is a web application designed to assist Muslim users in Singapore 
 - **Clustered Markers**: Groups nearby markers into clusters for improved map visualization, especially in densely populated areas.
 - **Responsive Design**: Ensures compatibility and usability across various devices and screen sizes, catering to the needs of a diverse user base.
 
+  ![Mosque Icon](https://github.com/missycoder/QiblaQuestSG/assets/156276105/93b642ef-1086-456a-bbe6-12020bb40037)
+  ![carpark Icon](https://github.com/missycoder/QiblaQuestSG/assets/156276105/fa249bba-6e37-4701-85b0-fb466aa54505)
+
 ## Technologies Used
 
 - **HTML**
