@@ -2,13 +2,15 @@
 
 QiblaQuest SG is a web application designed to assist Muslim users in Singapore to find mosques, musollas (prayer rooms), and carparks conveniently. The application aims to address the challenges Muslim users face when searching for prayer facilities and parking spaces, especially in unfamiliar areas or during busy times.
 
-![Desktop View](https://github.com/missycoder/QiblaQuestSG/assets/156276105/627adde3-4579-43cc-86f7-649317a2bddc)
+![QiblaQuestSG Landing Page](https://github.com/missycoder/QiblaQuestSG/assets/156276105/c42139c5-499d-4cf5-9d33-4d8617458977)
 
 ## User Stories
 
 - **As a Muslim resident or visitor in Singapore**, I want to easily find nearby mosques and musollas for prayers, especially when I'm in a new area or traveling.
 - **As a driver**, I want to locate available carparks near mosques and musollas to facilitate my parking during prayer times.
 - **As a user with visual impairment or limited mobility**, I want a user-friendly interface with accessible features that allow me to navigate the application efficiently.
+
+![Prayer Places](https://github.com/missycoder/QiblaQuestSG/assets/156276105/b125a230-b04c-4395-9ce5-ff9bc4130973)
 
 ## Features
 
@@ -43,6 +45,7 @@ QiblaQuest SG is a web application designed to assist Muslim users in Singapore 
 
 ### Visual Theme
 The design aims for simplicity and accessibility. The color scheme is chosen to be visually appealing yet easy on the eyes. These tones are used to symbolize growth, harmony, and peace, aligning with the theme of spirituality and nature.
+![Map Displaying Live Prayer Timing](https://github.com/missycoder/QiblaQuestSG/assets/156276105/c7b631dc-8bc5-43ef-9895-bba8cc208676)
 - **Gold**: #ad9551
 - **White**: rgb(255,255,255)
 - **Black**: rgb(0,0,0)
@@ -55,11 +58,13 @@ Clear and readable fonts are selected to ensure accessibility for all users. Geo
 The layout is designed to be intuitive and user-friendly, with essential features easily accessible. The map takes center stage, providing the main interface for users to interact with.
 
 ## Desktop View
-![QiblaQuestSG](https://github.com/missycoder/QiblaQuestSG/assets/156276105/64c0d7e5-ca37-4e50-a502-2a2d6a6b214b)
+![QQSG_DesktopView](https://github.com/missycoder/QiblaQuestSG/assets/156276105/c57918fc-7f2e-4e46-b98e-1cc5027acb49)
 
 ## Laptop View
+![QQSG_LaptopView](https://github.com/missycoder/QiblaQuestSG/assets/156276105/a505b52a-d399-4443-a473-d8d098d45b72)
 
-![QiblaQuestSG](https://github.com/missycoder/QiblaQuestSG/assets/156276105/503fb4fe-922a-4c65-ad33-bc3badaa5fb4)
+## Browser View
+![contactus](https://github.com/missycoder/QiblaQuestSG/assets/156276105/9bce0937-a6b8-435c-911b-ea371fa61bb2)
 
 ### Wireframes
 ![Wireframe_QiblaQuest](https://github.com/missycoder/QiblaQuestSG/assets/156276105/ffeb1fe7-e39f-4559-9562-0dd071546822)
