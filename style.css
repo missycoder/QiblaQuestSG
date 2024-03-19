@@ -138,9 +138,16 @@ footer {
   }
 }
 
+/* Media Queries for handphone screens */
 @media only screen and (max-width: 576px) {
+  /* Move the search container below the navbar icons */
   #search-container {
-    padding: 0.25%;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 10px auto;
+    text-align: center;
   }
 }
 
