@@ -62,6 +62,9 @@ The layout is designed to be intuitive and user-friendly, with essential feature
 
 ![QiblaQuestSG](https://github.com/missycoder/QiblaQuestSG/assets/156276105/503fb4fe-922a-4c65-ad33-bc3badaa5fb4)
 
+## Browser View
+![contactus](https://github.com/missycoder/QiblaQuestSG/assets/156276105/9bce0937-a6b8-435c-911b-ea371fa61bb2)
+
 ### Wireframes
 ![Wireframe_QiblaQuest](https://github.com/missycoder/QiblaQuestSG/assets/156276105/ffeb1fe7-e39f-4559-9562-0dd071546822)
 
