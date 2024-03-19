@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Initialize the map
     const map = initializeMap();
+
+    // ----------------------------------------------------------------
     // Create marker cluster groups for mosques, carparks, and musollas
+    // ----------------------------------------------------------------
     const mosqueCluster = createMarkerClusterGroup();
     const carparkCluster = createMarkerClusterGroup();
     const musollaCluster = createMarkerClusterGroup();
@@ -12,7 +15,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     addMosquesToMap(map, mosqueCluster);
     addCarparksToMap(map, carparkCluster);
     addMusollasToMap(map, musollaCluster);
-
+    
+    // ----------------------------------------------------------------
+    // Create layer control for mosques, carparks, and musollas
+    // ----------------------------------------------------------------
     // Closure - Add layer controls to the map
     // `function` creates a closure around the `addLayerControls` function, 
     // allowing it to access the map variable and its parameters(mosqueCluster, carparkCluster, musollaCluster), 
@@ -67,6 +73,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         return L.markerClusterGroup();
     }
 
+    // -------------------
+    // Functions: Mosques
+    // -------------------
     // Function to add markers for mosques to the map
     async function addMosquesToMap(map, clusterGroup) {
         // Fetch mosque data from mosques.json
@@ -81,6 +90,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         map.addLayer(clusterGroup);
     }
 
+
+    // -------------------
+    // Functions: Carparks
+    // -------------------
     // Function to add markers for carparks to the map
     // Data Validation - `try-catch` error during the fetching and adding of data for carparks 
     async function addCarparksToMap(map, clusterGroup) {
@@ -119,6 +132,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
+    // -------------------
+    // Functions: Musollas
+    // -------------------
     // Function to add markers for musollas to the map
     // Data Validation - `try-catch` error during the fetching and adding of data for musollas
     async function addMusollasToMap(map, clusterGroup) {
@@ -186,22 +202,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Get all marker clusters
-let markerClusters = document.querySelectorAll('.marker-cluster');
+    let markerClusters = document.querySelectorAll('.marker-cluster');
 
-// Iterate through each marker cluster
-markerClusters.forEach(function(cluster) {
-  // Get the count of markers in the cluster
-  let markerCount = parseInt(cluster.getAttribute('data-count'));
+    // Iterate through each marker cluster
+    markerClusters.forEach(function (cluster) {
+        // Get the count of markers in the cluster
+        let markerCount = parseInt(cluster.getAttribute('data-count'));
 
-  // Check if marker count exceeds 100
-  if (markerCount > 100) {
-    // Add a background color for clusters with more than 100 markers
-    cluster.style.backgroundColor = 'red';
-  }
-});
+        // Check if marker count exceeds 100
+        if (markerCount > 100) {
+            // Add a background color for clusters with more than 100 markers
+            cluster.style.backgroundColor = 'red';
+        }
+    });
 
 
+    // -------------------
     // SEARCH BUTTON
+    // -------------------
     // Function to search for places based on search terms
     async function search(lat, lng, searchTerms) {
         try {
@@ -313,68 +331,71 @@ markerClusters.forEach(function(cluster) {
     }
 
 
-   // Function to show current location on the map
-function showCurrentLocation(map) {
-    // Define layerLocateMe as a LayerGroup
-    const layerLocateMe = L.layerGroup();
+    // ---------------------------------------------
+    // Functions: Show Current Location on the map
+    // ----------------------------------------------
+    function showCurrentLocation(map) {
+        // Define layerLocateMe as a LayerGroup
+        const layerLocateMe = L.layerGroup();
 
-    // Options for geolocation
-    const options = {
-        enableHighAccuracy: true, // Enable high accuracy mode
-        timeout: 5000, // Maximum time to wait for location response (in milliseconds)
-        maximumAge: 0 // Maximum age of a cached location (in milliseconds)
-    };
+        // Options for geolocation
+        const options = {
+            enableHighAccuracy: true, // Enable high accuracy mode
+            timeout: 5000, // Maximum time to wait for location response (in milliseconds)
+            maximumAge: 0 // Maximum age of a cached location (in milliseconds)
+        };
 
-    // Use navigator.geolocation to get the current position
-    navigator.geolocation.getCurrentPosition(onLocationFound, onLocationError, options);
+        // Use navigator.geolocation to get the current position
+        navigator.geolocation.getCurrentPosition(onLocationFound, onLocationError, options);
 
-    // Function to handle successful location retrieval
-    function onLocationFound(e) {
-        const radius = e.coords.accuracy;
-        const me = L.marker([e.coords.latitude, e.coords.longitude], {
-            icon: L.icon({ iconUrl: '/images/me.png', iconSize: [32, 32] })
-        }).addTo(map);
-        const circle = L.circle([e.coords.latitude, e.coords.longitude], radius).addTo(map);
+        // Function to handle successful location retrieval
+        function onLocationFound(e) {
+            const radius = e.coords.accuracy;
+            const me = L.marker([e.coords.latitude, e.coords.longitude], {
+                icon: L.icon({ iconUrl: '/images/me.png', iconSize: [32, 32] })
+            }).addTo(map);
+            const circle = L.circle([e.coords.latitude, e.coords.longitude], radius).addTo(map);
 
-        me.addTo(layerLocateMe);
-        circle.addTo(layerLocateMe);
+            me.addTo(layerLocateMe);
+            circle.addTo(layerLocateMe);
 
-        // Fit the map bounds to the current location and set zoom level
-        map.fitBounds(circle.getBounds());
+            // Fit the map bounds to the current location and set zoom level
+            map.fitBounds(circle.getBounds());
 
-        document.querySelector('#location-info').innerHTML = `
+            document.querySelector('#location-info').innerHTML = `
             <h2>Your Current Location:</h2>
             <p>Latitude: ${e.coords.latitude}</p>
             <p>Longitude: ${e.coords.longitude}</p>
         `;
+        }
+
+        // When the `navigator.geolocation.getCurrentPosition` function encounters an error, 
+        // it calls the `onLocationError` function, and triggers the `Swal.fire` function to display an error message.
+        function onLocationError(e) {
+            // Display error message to the user using SweetAlert2 library
+            const errorMessage = 'Failed to retrieve your current location.';
+            Swal.fire({
+                title: 'Error',
+                text: errorMessage,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+
+        // Function to remove the Locate Me icon from the map
+        function removeLocateMe() {
+            map.removeLayer(layerLocateMe);
+        }
+
+        // Add event listener to remove Locate Me icon when clicked
+        document.querySelector('#locateMeBtn').addEventListener('click', removeLocateMe);
     }
 
-    // When the `navigator.geolocation.getCurrentPosition` function encounters an error, 
-    // it calls the `onLocationError` function, and triggers the `Swal.fire` function to display an error message.
-    function onLocationError(e) {
-        // Display error message to the user using SweetAlert2 library
-        const errorMessage = 'Failed to retrieve your current location.';
-        Swal.fire({
-            title: 'Error',
-            text: errorMessage,
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-    }
-
-    // Function to remove the Locate Me icon from the map
-    function removeLocateMe() {
-        map.removeLayer(layerLocateMe);
-    }
-
-    // Add event listener to remove Locate Me icon when clicked
-    document.querySelector('#locateMeBtn').addEventListener('click', removeLocateMe);
-}
 
 
-
-
-    // Function to add routing control to the map
+    // ------------------------------------------------
+    // Functions: Routing, FlyToControl, Remove Layer
+    // ------------------------------------------------
     function addRoutingControl(map) {
         // Add routing control to the map
         L.Routing.control({
@@ -401,7 +422,9 @@ function showCurrentLocation(map) {
         }
     }
 
-    // Hadith quotes array
+    // -------------------
+    // Hadith Quotes
+    // -------------------
     const hadithQuotes = [
         "The best of you are those who are best to their families. - Sahih Bukhari",
         "Speak good or remain silent. - Sunan al-Tirmidhi",
@@ -434,66 +457,71 @@ function showCurrentLocation(map) {
     setInterval(renderHadithQuote, 10000);
 
 
+    // -------------------------------
+    // Functions: Live Date and Time
+    // -------------------------------
     // Function to fetch live date and time
-function updateLiveDateTime() {
-    const currentDate = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Singapore' };
-    const formattedDate = currentDate.toLocaleDateString('en-US', options);
-    document.getElementById('liveDateValue').textContent = formattedDate;
-  
-    // Fetch Islamic date and prayer timings
-    fetchPrayerTimings();
-  }
-  
-  // Function to fetch Islamic date and prayer timings
-  async function fetchPrayerTimings() {
-    const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Singapore&country=Singapore&method=2');
-    const data = await response.json();
-    const islamicDate = data.data.date.readable;
-    const prayerTimings = data.data.timings;
-  
-    document.getElementById('islamicDateValue').textContent = islamicDate;
-    const prayerTimingItems = document.querySelectorAll('.prayerTimingItem');
-    const prayerNames = Object.keys(prayerTimings);
-    for (let i = 0; i < prayerNames.length; i++) {
-      prayerTimingItems[i].textContent = `${prayerNames[i]}: ${prayerTimings[prayerNames[i]]}`;
+    function updateLiveDateTime() {
+        const currentDate = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Singapore' };
+        const formattedDate = currentDate.toLocaleDateString('en-US', options);
+        document.getElementById('liveDateValue').textContent = formattedDate;
+
+        // Fetch Islamic date and prayer timings
+        fetchPrayerTimings();
     }
-  }
-  
-  // Update live date and time every second
-  setInterval(updateLiveDateTime, 1000);
-  
-  // Initial call to update live date and time
-  updateLiveDateTime();
-  // Function to fetch live date and time
-  function updateLiveDateTime() {
-    const currentDate = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Singapore' };
-    const formattedDate = currentDate.toLocaleDateString('en-US', options);
-    document.getElementById('liveDateValue').textContent = formattedDate;
-  
-    // Fetch prayer timings
-    fetchPrayerTimings();
-  }
-  
-  // Function to fetch prayer timings
-  async function fetchPrayerTimings() {
-    const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Singapore&country=Singapore&method=2');
-    const data = await response.json();
-    const prayerTimings = data.data.timings;
-  
-    const prayerTimingItems = document.querySelectorAll('.prayerTimingItem');
-    const prayerNames = Object.keys(prayerTimings);
-    for (let i = 0; i < prayerNames.length; i++) {
-      prayerTimingItems[i].textContent = `${prayerNames[i]}: ${prayerTimings[prayerNames[i]]}`;
+
+    // -------------------------------------------------
+    // Functions: Fetch Islamic Date and Prayer TIming
+    // -------------------------------------------------
+    async function fetchPrayerTimings() {
+        const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Singapore&country=Singapore&method=2');
+        const data = await response.json();
+        const islamicDate = data.data.date.readable;
+        const prayerTimings = data.data.timings;
+
+        document.getElementById('islamicDateValue').textContent = islamicDate;
+        const prayerTimingItems = document.querySelectorAll('.prayerTimingItem');
+        const prayerNames = Object.keys(prayerTimings);
+        for (let i = 0; i < prayerNames.length; i++) {
+            prayerTimingItems[i].textContent = `${prayerNames[i]}: ${prayerTimings[prayerNames[i]]}`;
+        }
     }
-  }
-  
-  // Update live date and time every second
-  setInterval(updateLiveDateTime, 1000);
-  
-  // Initial call to update live date and time
-  updateLiveDateTime();
-  
+
+    // Update live date and time every second
+    setInterval(updateLiveDateTime, 1000);
+
+    // Initial call to update live date and time
+    updateLiveDateTime();
+    // Function to fetch live date and time
+    function updateLiveDateTime() {
+        const currentDate = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Singapore' };
+        const formattedDate = currentDate.toLocaleDateString('en-US', options);
+        document.getElementById('liveDateValue').textContent = formattedDate;
+
+        // Fetch prayer timings
+        fetchPrayerTimings();
+    }
+
+    // Function to fetch prayer timings
+    async function fetchPrayerTimings() {
+        const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Singapore&country=Singapore&method=2');
+        const data = await response.json();
+        const prayerTimings = data.data.timings;
+
+        const prayerTimingItems = document.querySelectorAll('.prayerTimingItem');
+        const prayerNames = Object.keys(prayerTimings);
+        for (let i = 0; i < prayerNames.length; i++) {
+            prayerTimingItems[i].textContent = `${prayerNames[i]}: ${prayerTimings[prayerNames[i]]}`;
+        }
+    }
+
+    // Update live date and time every second
+    setInterval(updateLiveDateTime, 1000);
+
+    // Initial call to update live date and time
+    updateLiveDateTime();
+
 
 });

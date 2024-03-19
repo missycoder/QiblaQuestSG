@@ -46,7 +46,7 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* Adjust width of home and contact icons */
+/* Navbar Icons */
 nav ul li a img {
   width: 40px; 
   height: auto; 
@@ -56,7 +56,7 @@ nav ul li a img {
   background-color: deeppink; /* Default color */
 }
 
-/* Styling for live date and prayer timing sections */
+/* CSS for live date and prayer timing sections */
 #liveDates {
   background-color: #f2f2f2;
   padding: 10px 20px;
@@ -64,7 +64,7 @@ nav ul li a img {
 }
 
 
-/* Styling for map container */
+/* CSS for map container */
 #map-container {
  margin: 8px;
  border-bottom:0cm;
@@ -72,7 +72,7 @@ nav ul li a img {
   overflow: hidden; 
 }
 
-/* Styling for search container */
+/* CSS for search container */
 #search-container {
   position: absolute;
   margin: auto;
@@ -104,7 +104,7 @@ nav ul li a img {
   cursor: pointer;
 }
 
-/* Styling for search results */
+/* CSS for search results */
 #search-results {
   list-style: none;
   padding: 0;
@@ -169,7 +169,7 @@ body {
 
 /* Style for the card header */
 .card-header {
-  background: linear-gradient(to right, #ad9551, #2a5f2b); /* Gradient background */
+  background: linear-gradient(to right, #ad9551, #2a5f2b);
   color: black;
   padding: 10px;
   font-weight: bold;
@@ -184,7 +184,7 @@ body {
 /* Style for the blockquote */
 .blockquote {
   font-style: italic;
-  border-left: 5px solid #2a5f2b; /* Adjust color as needed */
+  border-left: 5px solid #2a5f2b;
   padding-left: 15px;
   color: white;
 }
