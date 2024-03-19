@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     })();
 
     // Add geocoding control for searching locations
-    addGeocodingControl(map);
+    // addGeocodingControl(map);
     // Add location control for showing current location
-    addLocationControl(map);
+    // addLocationControl(map);
     // Add leaflet search control for searching mosques, carparks, musollas
     addLeafletSearchControl(map, mosqueCluster, carparkCluster, musollaCluster);
     // Show current location of the user
@@ -185,18 +185,77 @@ document.addEventListener("DOMContentLoaded", async function () {
         return marker;
     }
 
-    // Function to add geocoding control to the map [API]
-    function addGeocodingControl(map) {
-        // Add geocoding control using MapTiler
-        L.Control.geocoder({
-            geocoder: L.Control.Geocoder.mapTiler('hT5cbJbT4JHuFPq0wIq8')
-        }).addTo(map);
+
+    // SEARCH BUTTON
+    async function search(lat, lng, searchTerms) {
+        try {
+            const response = await axios.get('mosques.json');
+            const searchData = response.data.mosques.mosque(mosque => {
+                return mosque.name.toLowerCase().includes(searchTerms.toLowerCase());
+            });
+            return searchData;
+        } catch (error) {
+            console.error('Error during search:', error);
+            // Rethrow the error to propagate it
+            throw error; 
+        }
     }
+
+    document.querySelector("#searchBtn").addEventListener("click", async function () {
+        try {
+            const searchTerms = document.querySelector("#searchTerms").value;
+
+            // Find the lat lng of the center of the map
+            const centerPoint = map.getBounds().getCenter();
+            const searchData = await search(centerPoint.lat, centerPoint.lng, searchTerms);
+
+            // Clear existing markers before adding new ones
+            searchLayer.clearLayers();
+
+            // Adding markers to the map for the search results
+            addMarkersToMap(searchData, searchLayer, map);
+        } catch (error) {
+            console.error('Error during search:', error);
+        }
+    });
+
+
+    document.querySelector("#toggleSearchBtn").addEventListener("click", function () {
+
+        const searchContainer = document.querySelector("#search-container");
+        const style = window.getComputedStyle(searchContainer);
+        // if the search container is already visible, we'll hide it
+        if (style.display != "none") {
+            searchContainer.style.display = "none";
+        } else {
+            // otherwise, show it
+            searchContainer.style.display = 'block';
+        }
+    })
+
+
+    async function search(lat, lng, searchTerms) {
+        const response = await axios.get('mosques.json')
+        return response.data;
+    };
+
+
+
+
+
+
+    // // Function to add geocoding control to the map [API]
+    // function addGeocodingControl(map) {
+    //     // Add geocoding control using MapTiler
+    //     L.Control.geocoder({
+    //         geocoder: L.Control.Geocoder.mapTiler('hT5cbJbT4JHuFPq0wIq8')
+    //     }).addTo(map);
+    // }
 
     // Function to add location control to the map
     function addLocationControl(map) {
         // Add location control to the map
-        L.control.locate().addTo(map);
+        // L.control.locate().addTo(map);
     }
 
     // Function to add leaflet search control to the map
