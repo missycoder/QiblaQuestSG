@@ -185,6 +185,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         return marker;
     }
 
+    // Get all marker clusters
+let markerClusters = document.querySelectorAll('.marker-cluster');
+
+// Iterate through each marker cluster
+markerClusters.forEach(function(cluster) {
+  // Get the count of markers in the cluster
+  let markerCount = parseInt(cluster.getAttribute('data-count'));
+
+  // Check if marker count exceeds 100
+  if (markerCount > 100) {
+    // Add a background color for clusters with more than 100 markers
+    cluster.style.backgroundColor = 'red';
+  }
+});
+
 
     // SEARCH BUTTON
     // Function to search for places based on search terms
@@ -255,10 +270,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const response = await axios.get('mosques.json')
         return response.data;
     };
-
-
-
-
 
 
     // // Function to add geocoding control to the map [API]

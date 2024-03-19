@@ -53,7 +53,7 @@ nav ul li a img {
 }
 
 .marker-cluster div {
-  background-color: deeppink;
+  background-color: deeppink; /* Default color */
 }
 
 /* Styling for live date and prayer timing sections */
@@ -91,9 +91,9 @@ nav ul li a img {
 #search-container {
   position: absolute;
   margin: auto;
-  padding: 0.5%;
+  padding: 1.5%;
   top: 20px;
-  left: 78%;
+  left: 80%;
   transform: translateX(-50%);
   text-align: center;
   color: bisque;
