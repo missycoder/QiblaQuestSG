@@ -43,6 +43,7 @@ QiblaQuest SG is a web application designed to assist Muslim users in Singapore 
 
 ### Visual Theme
 The design aims for simplicity and accessibility. The color scheme is chosen to be visually appealing yet easy on the eyes. These tones are used to symbolize growth, harmony, and peace, aligning with the theme of spirituality and nature.
+![Map Displaying Live Prayer Timing](https://github.com/missycoder/QiblaQuestSG/assets/156276105/c7b631dc-8bc5-43ef-9895-bba8cc208676)
 - **Gold**: #ad9551
 - **White**: rgb(255,255,255)
 - **Black**: rgb(0,0,0)
