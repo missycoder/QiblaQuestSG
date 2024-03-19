@@ -1,0 +1,51 @@
+/* CSS for header */
+header {
+    background-color: #ffffff;
+    padding: 20px 10px; 
+}
+
+h1 {
+    padding: 0px;
+    margin-bottom: 30px;
+}
+
+/* Style for the logo */
+header img {
+    max-width: 200px; 
+}
+
+label[for="name"],
+label[for="email"],
+label[for="messageType"],
+label[for="message"] {
+    font-weight: bold;
+}
+
+/* Style for the main content section */
+.container {
+    background-color: #ad9551;
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto; 
+    margin-top: 5px; /* create space below header */
+}
+
+.form-check-input {
+    background-color: #2a5f2b !important;
+    border-color: white !important;
+}
+
+
+/* Style for submit button */
+.btn-success {
+    background-color: #2a5f2b;
+    border-color: #2a5f2b;
+    color: #ffffff;
+}
+
+/* Additional spacing for the line below heading */
+p {
+    margin-bottom: 10px;
+}

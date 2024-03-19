@@ -1,10 +1,12 @@
 body {
   font-family: Georgia, 'Times New Roman', Times, serif; 
+  background-color: #ad9551;
 }
 
 #singaporeMap {
-  height: 555px;
+  height: 500px;
   width: 100%;
+  border-radius: 10px / 30px;
 }
 
 /* Adjust z-index for Leaflet search control */
@@ -15,15 +17,16 @@ body {
 /* Header styling */
 header {
   display: flex;
+  height:min-content;
   align-items: center;
-  background-color: #ad9551;
+  background-color: white;
   color: white;
-  padding: 10px 20px;
+  padding: 10px;
   text-align: center;
 }
 
 header img {
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
 }
 
@@ -47,6 +50,10 @@ nav ul li a {
 nav ul li a img {
   width: 40px; 
   height: auto; 
+}
+
+.marker-cluster div {
+  background-color: deeppink;
 }
 
 /* Styling for live date and prayer timing sections */
@@ -74,8 +81,9 @@ nav ul li a img {
 
 /* Styling for map container */
 #map-container {
-  margin: 20px 0;
-  border-radius: 15px; /* rounded map */
+ margin: 8px;
+ border-bottom:0cm;
+  border-radius: 10px / 30px; /* rounded map */
   overflow: hidden; 
 }
 
@@ -84,13 +92,13 @@ nav ul li a img {
   position: absolute;
   margin: auto;
   padding: 0.5%;
-  border-radius: 15px;
   top: 20px;
   left: 78%;
   transform: translateX(-50%);
   text-align: center;
   color: bisque;
   z-index: 1000;
+  background-color: #ad9551;
 }
 
 #searchTerms {
@@ -131,7 +139,7 @@ nav ul li a img {
 footer {
   background-color: #2a5f2b;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   text-align: center;
   position: fixed;
   bottom: 0;

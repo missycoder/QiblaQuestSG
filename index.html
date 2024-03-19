@@ -70,12 +70,17 @@
     </div>
   </div>
 
+  <!-- Map Controls -->
+  <div id="map-controls" class="leaflet-bar leaflet-control">
+    <button id="locateMeBtn">Remove Locate Me</button>
+  </div>
+
   <!-- Location info container -->
   <div id="location-info"></div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; QiblaQuest SG 2024. All rights reserved.</p>
+    <p>&copy; 2024 QiblaQuest SG. All rights reserved.</p>
   </footer>
 
   <!-- Leaflet Scripts -->
@@ -96,9 +101,12 @@
 
   <!-- Leaflet FlyTo Plugin -->
   <script src="https://unpkg.com/leaflet-flyto/src/leaflet-flyto.js"></script>
- 
+
   <!-- Axios CDN (before My Script)-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
 
   <!-- My Script -->
   <script src="script.js"></script>

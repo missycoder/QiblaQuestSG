@@ -187,17 +187,34 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     // SEARCH BUTTON
+    // Function to search for places based on search terms
     async function search(lat, lng, searchTerms) {
         try {
-            const response = await axios.get('mosques.json');
-            const searchData = response.data.mosques.mosque(mosque => {
-                return mosque.name.toLowerCase().includes(searchTerms.toLowerCase());
-            });
+            // Fetch data from local JSON files
+            const [mosquesResponse, carparksResponse, musollasResponse] = await Promise.all([
+                axios.get('mosques.json'),
+                axios.get('carparks.json'),
+                axios.get('musollas.json')
+            ]);
+
+            // Filter the data based on search terms
+            const searchData = {
+                mosques: mosquesResponse.data.mosques.filter(mosque => {
+                    return mosque.name.toLowerCase().includes(searchTerms.toLowerCase());
+                }),
+                carparks: carparksResponse.data.carparks.filter(carpark => {
+                    return carpark.carpark_no.toLowerCase().includes(searchTerms.toLowerCase());
+                }),
+                musollas: musollasResponse.data.musollas.filter(musolla => {
+                    return musolla.Location.toLowerCase().includes(searchTerms.toLowerCase());
+                })
+            };
+
             return searchData;
         } catch (error) {
             console.error('Error during search:', error);
             // Rethrow the error to propagate it
-            throw error; 
+            throw error;
         }
     }
 
@@ -219,7 +236,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     });
 
-
+    //Event listener for the toggle search button
     document.querySelector("#toggleSearchBtn").addEventListener("click", function () {
 
         const searchContainer = document.querySelector("#search-container");
@@ -284,36 +301,67 @@ document.addEventListener("DOMContentLoaded", async function () {
         searchControl.getContainer().style.zIndex = 1001;
     }
 
-    // Function to show current location on the map
-    function showCurrentLocation(map) {
-        navigator.geolocation.getCurrentPosition(onLocationFound, onLocationError);
 
-        function onLocationFound(e) {
-            const radius = e.coords.accuracy;
-            const me = L.marker([e.coords.latitude, e.coords.longitude], {
-                icon: L.icon({ iconUrl: '/images/me.png', iconSize: [32, 32] })
-            }).addTo(map);
-            const circle = L.circle([e.coords.latitude, e.coords.longitude], radius).addTo(map);
-            layerLocateMe.addTo(map);
+   // Function to show current location on the map
+function showCurrentLocation(map) {
+    // Define layerLocateMe as a LayerGroup
+    const layerLocateMe = L.layerGroup();
 
-            document.querySelector('#location-info').innerHTML = `
-                <h2>Your Current Location:</h2>
-                <p>Latitude: ${e.coords.latitude}</p>
-                <p>Longitude: ${e.coords.longitude}</p>
-            `;
-        }
+    // Options for geolocation
+    const options = {
+        enableHighAccuracy: true, // Enable high accuracy mode
+        timeout: 5000, // Maximum time to wait for location response (in milliseconds)
+        maximumAge: 0 // Maximum age of a cached location (in milliseconds)
+    };
 
-        // When the `navigator.geolocation.getCurrentPosition` function encounters an error, 
-        // it calls the `onLocationError` function, and triggers the `Swal.fire` function to display an error message.
-        function onLocationError(e) {
-            Swal.fire({
-                title: 'Error',
-                text: 'Failed to retrieve your current location.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        }
+    // Use navigator.geolocation to get the current position
+    navigator.geolocation.getCurrentPosition(onLocationFound, onLocationError, options);
+
+    // Function to handle successful location retrieval
+    function onLocationFound(e) {
+        const radius = e.coords.accuracy;
+        const me = L.marker([e.coords.latitude, e.coords.longitude], {
+            icon: L.icon({ iconUrl: '/images/me.png', iconSize: [32, 32] })
+        }).addTo(map);
+        const circle = L.circle([e.coords.latitude, e.coords.longitude], radius).addTo(map);
+
+        me.addTo(layerLocateMe);
+        circle.addTo(layerLocateMe);
+
+        // Fit the map bounds to the current location and set zoom level
+        map.fitBounds(circle.getBounds());
+
+        document.querySelector('#location-info').innerHTML = `
+            <h2>Your Current Location:</h2>
+            <p>Latitude: ${e.coords.latitude}</p>
+            <p>Longitude: ${e.coords.longitude}</p>
+        `;
     }
+
+    // When the `navigator.geolocation.getCurrentPosition` function encounters an error, 
+    // it calls the `onLocationError` function, and triggers the `Swal.fire` function to display an error message.
+    function onLocationError(e) {
+        // Display error message to the user using SweetAlert2 library
+        const errorMessage = 'Failed to retrieve your current location.';
+        Swal.fire({
+            title: 'Error',
+            text: errorMessage,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+
+    // Function to remove the Locate Me icon from the map
+    function removeLocateMe() {
+        map.removeLayer(layerLocateMe);
+    }
+
+    // Add event listener to remove Locate Me icon when clicked
+    document.querySelector('#locateMeBtn').addEventListener('click', removeLocateMe);
+}
+
+
+
 
     // Function to add routing control to the map
     function addRoutingControl(map) {
