@@ -55,10 +55,44 @@
     <div id="map-container">
       <div id="singaporeMap"></div>
 
-      <!-- Hadith Quotes -->
-      <div class="row">
-        <div id="hadithQuotes" class="mt-3 text-center"></div>
+      <!-- HadithQuotes -->
+      <div class="card">
+        <div class="card-header">
+          Hadith Quote
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p id="quote">The best of people are those who are most beneficial to people.</p>
+            <footer class="blockquote-footer">Hadith <cite title="Source Title">Sunan al-Tirmidhi</cite></footer>
+          </blockquote>
+        </div>
       </div>
+
+
+  <!-- Hadith Quotes -->
+  <div class="row">
+    <div id="hadithQuotes" class="mt-3 text-center"></div>
+  </div>
+
+
+<!-- Live date and prayer timing sections -->
+<div id="liveDateTimeRow" class="row justify-content-center align-items-center">
+  <div id="liveDate" class="col text-center">
+    <h3>Live Date:</h3>
+    <p id="liveDateValue">Loading...</p>
+  </div>
+  <div id="prayerTiming" class="col text-center">
+    <h3>Prayer Timing:</h3>
+    <div id="prayerTimingValue" class="row justify-content-center">
+      <p class="prayerTimingItem">Loading...</p>
+      <p class="prayerTimingItem">Loading...</p>
+      <p class="prayerTimingItem">Loading...</p>
+      <p class="prayerTimingItem">Loading...</p>
+      <p class="prayerTimingItem">Loading...</p>
+    </div>
+  </div>
+</div>
+
 
 
       <!-- Search -->
@@ -71,9 +105,9 @@
   </div>
 
   <!-- Map Controls -->
-  <div id="map-controls" class="leaflet-bar leaflet-control">
+  <!-- <div id="map-controls" class="leaflet-bar leaflet-control">
     <button id="locateMeBtn">Remove Locate Me</button>
-  </div>
+  </div> -->
 
   <!-- Location info container -->
   <div id="location-info"></div>

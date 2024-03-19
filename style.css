@@ -4,7 +4,7 @@ body {
 }
 
 #singaporeMap {
-  height: 500px;
+  height: 550px;
   width: 100%;
   border-radius: 10px / 30px;
 }
@@ -63,21 +63,6 @@ nav ul li a img {
   text-align: center;
 }
 
-#liveDate,
-#islamicDate,
-#prayerTiming {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-#prayerTiming span {
-  background-color: #ad9551;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 0 10px;
-}
 
 /* Styling for map container */
 #map-container {
@@ -93,7 +78,7 @@ nav ul li a img {
   margin: auto;
   padding: 1.5%;
   top: 20px;
-  left: 80%;
+  left: 83%;
   transform: translateX(-50%);
   text-align: center;
   color: bisque;
@@ -157,4 +142,60 @@ footer {
   #search-container {
     padding: 0.25%;
   }
+}
+
+body {
+  font-family: Verdana, sans-serif; 
+}
+
+#liveDateTimeRow {
+  background: linear-gradient(to bottom, #ad9551, #99e6ff); 
+  padding: 0px; 
+  text-align: center; 
+}
+
+.prayerTimingItem {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Style for the card */
+.card {
+  margin: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the card header */
+.card-header {
+  background: linear-gradient(to right, #ad9551, #2a5f2b); /* Gradient background */
+  color: black;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+}
+
+/* Style for the card body */
+.card-body {
+  padding: 20px;
+}
+
+/* Style for the blockquote */
+.blockquote {
+  font-style: italic;
+  border-left: 5px solid #2a5f2b; /* Adjust color as needed */
+  padding-left: 15px;
+  color: white;
+}
+
+/* Style for the blockquote footer */
+.blockquote-footer {
+  margin-top: 10px;
+  font-size: 14px;
+  color: black;
+}
+
+#quote {
+  color: black;
 }

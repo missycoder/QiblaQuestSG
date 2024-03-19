@@ -433,4 +433,67 @@ function showCurrentLocation(map) {
     // Set interval to rotate quotes every 10 seconds (10000 milliseconds)
     setInterval(renderHadithQuote, 10000);
 
+
+    // Function to fetch live date and time
+function updateLiveDateTime() {
+    const currentDate = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Singapore' };
+    const formattedDate = currentDate.toLocaleDateString('en-US', options);
+    document.getElementById('liveDateValue').textContent = formattedDate;
+  
+    // Fetch Islamic date and prayer timings
+    fetchPrayerTimings();
+  }
+  
+  // Function to fetch Islamic date and prayer timings
+  async function fetchPrayerTimings() {
+    const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Singapore&country=Singapore&method=2');
+    const data = await response.json();
+    const islamicDate = data.data.date.readable;
+    const prayerTimings = data.data.timings;
+  
+    document.getElementById('islamicDateValue').textContent = islamicDate;
+    const prayerTimingItems = document.querySelectorAll('.prayerTimingItem');
+    const prayerNames = Object.keys(prayerTimings);
+    for (let i = 0; i < prayerNames.length; i++) {
+      prayerTimingItems[i].textContent = `${prayerNames[i]}: ${prayerTimings[prayerNames[i]]}`;
+    }
+  }
+  
+  // Update live date and time every second
+  setInterval(updateLiveDateTime, 1000);
+  
+  // Initial call to update live date and time
+  updateLiveDateTime();
+  // Function to fetch live date and time
+  function updateLiveDateTime() {
+    const currentDate = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Singapore' };
+    const formattedDate = currentDate.toLocaleDateString('en-US', options);
+    document.getElementById('liveDateValue').textContent = formattedDate;
+  
+    // Fetch prayer timings
+    fetchPrayerTimings();
+  }
+  
+  // Function to fetch prayer timings
+  async function fetchPrayerTimings() {
+    const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Singapore&country=Singapore&method=2');
+    const data = await response.json();
+    const prayerTimings = data.data.timings;
+  
+    const prayerTimingItems = document.querySelectorAll('.prayerTimingItem');
+    const prayerNames = Object.keys(prayerTimings);
+    for (let i = 0; i < prayerNames.length; i++) {
+      prayerTimingItems[i].textContent = `${prayerNames[i]}: ${prayerTimings[prayerNames[i]]}`;
+    }
+  }
+  
+  // Update live date and time every second
+  setInterval(updateLiveDateTime, 1000);
+  
+  // Initial call to update live date and time
+  updateLiveDateTime();
+  
+
 });
