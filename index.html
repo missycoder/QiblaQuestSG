@@ -41,17 +41,32 @@
 </head>
 
 <body>
-  <header>
-    <img src="/images/qiblaquestlogo0.png" alt="QiblaQuest SG Logo">
-    <nav>
-      <ul>
-        <li><a href="#home"><img src="/images/home.png" alt="Home"></a></li>
-        <a href="prayerplace.html"><img src="/images/musollasicon.png" alt="Prayer Places" style="width: 40px; height: 40px; filter: brightness(0) grayscale(100%);"></a>
-        <li><a href="contactus.html"><img src="/images/email.png" alt="Contact"></a></li>
-      </ul>
-    </nav>
-  </header>
-
+  <div id="header-container">
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <img id="logo" src="/images/qiblaquestlogo0.png" alt="QiblaQuest SG Logo">
+          </li>
+          <li>
+            <a href="#home"><img src="/images/home.png" alt="Home"></a>
+          </li>
+          <li>
+            <a href="prayerplace.html"><img src="/images/musollasicon.png" alt="Prayer Places"
+                style="width: 40px; height: 40px; filter: brightness(0) grayscale(100%);"></a>
+          </li>
+          <li>
+            <a href="contactus.html"><img src="/images/email.png" alt="Contact"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Search -->
+    <div id="search-container" class="leaflet-bar leaflet-control leaflet-control-custom">
+      <div><div id="search-results"></div><input type="text" id="searchTerms" class="form-control mb-0" placeholder="Search for mosque..."></div>
+      <button id="searchBtn" class="btn btn-primary">Search</button>
+    </div>
+  </div>
   <div class="container">
     <div id="map-container">
       <div id="singaporeMap"></div>
@@ -70,38 +85,33 @@
       </div>
 
 
-  <!-- Hadith Quotes -->
-  <div class="row">
-    <div id="hadithQuotes" class="mt-3 text-center"></div>
-  </div>
-
-
-<!-- Live date and prayer timing sections -->
-<div id="liveDateTimeRow" class="row justify-content-center align-items-center">
-  <div id="liveDate" class="col text-center">
-    <h3>Live Date:</h3>
-    <p id="liveDateValue">Loading...</p>
-  </div>
-  <div id="prayerTiming" class="col text-center">
-    <h3>Prayer Timing:</h3>
-    <div id="prayerTimingValue" class="row justify-content-center">
-      <p class="prayerTimingItem">Loading...</p>
-      <p class="prayerTimingItem">Loading...</p>
-      <p class="prayerTimingItem">Loading...</p>
-      <p class="prayerTimingItem">Loading...</p>
-      <p class="prayerTimingItem">Loading...</p>
-    </div>
-  </div>
-</div>
-
-
-
-      <!-- Search -->
-      <div id="search-container" class="leaflet-bar leaflet-control leaflet-control-custom">
-        <input type="text" id="searchTerms" class="form-control mb-3" placeholder="Search for mosque...">
-        <button id="searchBtn" class="btn btn-primary">Search</button>
-        <div id="search-results"></div>
+      <!-- Hadith Quotes -->
+      <div class="row">
+        <div id="hadithQuotes" class="mt-3 text-center"></div>
       </div>
+
+
+      <!-- Live date and prayer timing sections -->
+      <div id="liveDateTimeRow" class="row justify-content-center align-items-center">
+        <div id="liveDate" class="col text-center">
+          <h3>Live Date:</h3>
+          <p id="liveDateValue"></p>
+        </div>
+        <div id="prayerTiming" class="col text-center">
+          <h3>Prayer Timing:</h3>
+          <div id="prayerTimingValue" class="row justify-content-center">
+            <p class="prayerTimingItem">Loading...</p>
+            <p class="prayerTimingItem">Loading...</p>
+            <p class="prayerTimingItem">Loading...</p>
+            <p class="prayerTimingItem">Loading...</p>
+            <p class="prayerTimingItem">Loading...</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      
     </div>
   </div>
 

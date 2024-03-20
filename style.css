@@ -15,7 +15,7 @@ body {
 }
 
 /* Header styling */
-header {
+/* header {
   display: flex;
   height:min-content;
   align-items: center;
@@ -23,11 +23,21 @@ header {
   color: white;
   padding: 10px;
   text-align: center;
+} */
+
+#header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  color: white;
 }
 
-header img {
-  max-width: 200px;
-  height: auto;
+#logo {
+  height: 10vh;
+  object-fit: cover;
+  margin-left: 3vw;
 }
 
 nav ul {
@@ -37,7 +47,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 /* Header link styling */
@@ -48,8 +58,8 @@ nav ul li a {
 
 /* Navbar Icons */
 nav ul li a img {
-  width: 40px; 
-  height: auto; 
+  width: 45px; 
+  height: auto;
 }
 
 .marker-cluster div {
@@ -75,10 +85,12 @@ nav ul li a img {
 /* CSS for search container */
 #search-container {
   position: absolute;
+  display: flex;
+  align-items: center;
   margin: auto;
-  padding: 1.5%;
+  padding: 0.5%;
   top: 20px;
-  left: 80%;
+  left: 73%;
   transform: translateX(-50%);
   text-align: center;
   color: bisque;
@@ -87,6 +99,8 @@ nav ul li a img {
 }
 
 #searchTerms {
+  display: flex;
+  align-items: center;
   padding: 10px;
   border-radius: 15px;
   border: 1px solid #ccc;
@@ -102,6 +116,7 @@ nav ul li a img {
   background-color: #2a5f2b;
   color: white;
   cursor: pointer;
+  margin-left:10px;
 }
 
 /* CSS for search results */
